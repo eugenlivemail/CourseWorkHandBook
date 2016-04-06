@@ -8,9 +8,9 @@
 struct Data
 {
 	char id[3];
-	char name[20];
-	char yearlife[22];
-	char quore[100];
+	char name[40];
+	char yearlife[40];
+	char quore[500];
 	char composition[30];
 	
 };
@@ -46,25 +46,26 @@ void addData()
 {
 	printf("Введите данные\n");
 	FILE *fdataAdd;
+	char t;
 	while(true)
 	{
 		fdataAdd=fopen("book.txt","at");
 		Data dataAdd;
 		printf("Введите ID\n");
-		scanf("%s",&dataAdd.id);
+		fscanf(stdin,"%s",&dataAdd.id,&t);
 		printf("Введите имя композитора\n");
-		scanf("%s",&dataAdd.name);
+		fscanf(stdin,"%s",&dataAdd.name,&t);
 		printf("Введите годы жизни\n");
-		scanf("%s",&dataAdd.yearlife);
+		fscanf(stdin,"%s",&dataAdd.yearlife,&t);
 		printf("Введите цитату\n");
-		scanf("%s",&dataAdd.quore);
+		fscanf(stdin,"%s",&dataAdd.quore,&t);
 		printf("Введите произведение\n");
-		scanf("%s",&dataAdd.composition);
-		fwrite(&dataAdd.id,sizeof(dataAdd.id),1,fdataAdd);
-		fwrite(&dataAdd.name,sizeof(dataAdd.name),1,fdataAdd);
-		fwrite(&dataAdd.yearlife,sizeof(dataAdd.yearlife),1,fdataAdd);
-		fwrite(&dataAdd.quore,sizeof(dataAdd.quore),1,fdataAdd);
-		fwrite(&dataAdd.composition,sizeof(dataAdd.composition),1,fdataAdd);
+		fscanf(stdin,"%s",&dataAdd.composition,&t);
+		fprintf(fdataAdd,"%s",dataAdd.id,t);
+		fprintf(fdataAdd,"%s",dataAdd.name,t);
+		fprintf(fdataAdd,"%s",dataAdd.yearlife,t);
+		fprintf(fdataAdd,"%s",dataAdd.quore,t);
+		fprintf(fdataAdd,"%s",dataAdd.composition,t);
 		fclose(fdataAdd);
 		printf("Нажмите Q/q для выхода из режима заполнения или Enter для продолжения\n");
 		char c=' ';
@@ -78,9 +79,10 @@ void addData()
 int main() 
 {
 	system("cls");
-	setlocale(LC_ALL,"Russian");
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
 	//allData();
 	//autor();
-//	addData();
+	addData();
 	getchar();
 }
