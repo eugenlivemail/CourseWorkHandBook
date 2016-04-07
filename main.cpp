@@ -7,12 +7,13 @@
 //add data
 struct Data
 {
+	char startLine[40];
 	char id[3];
 	char name[40];
 	char yearlife[40];
 	char quore[500];
 	char composition[30];
-	
+	char endLine[40];	
 };
 
 //about the autor
@@ -61,11 +62,13 @@ void addData()
 		fscanf(stdin,"%s",&dataAdd.quore,&t);
 		printf("Введите произведение\n");
 		fscanf(stdin,"%s",&dataAdd.composition,&t);
+		fprintf(fdataAdd,"%s-----------------------------------------\n",dataAdd.startLine,t);
 		fprintf(fdataAdd,"%s\n",dataAdd.id,t);
 		fprintf(fdataAdd,"%s\n",dataAdd.name,t);
 		fprintf(fdataAdd,"%s\n",dataAdd.yearlife,t);
 		fprintf(fdataAdd,"%s\n",dataAdd.quore,t);
 		fprintf(fdataAdd,"%s\n",dataAdd.composition,t);
+		fprintf(fdataAdd,"%s-----------------------------------------\n",dataAdd.endLine,t);
 		fclose(fdataAdd);
 		printf("Нажмите Q/q для выхода из режима заполнения или Enter для продолжения\n");
 		char c=' ';
