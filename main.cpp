@@ -7,7 +7,6 @@
 //add data
 struct Data
 {
-	char startLine[40];
 	char id[3];
 	char name[40];
 	char yearlife[40];
@@ -62,7 +61,6 @@ void addData()
 		fscanf(stdin,"%s",&dataAdd.quore,&t);
 		printf("Введите произведение\n");
 		fscanf(stdin,"%s",&dataAdd.composition,&t);
-		fprintf(fdataAdd,"%s-----------------------------------------\n",dataAdd.startLine,t);
 		fprintf(fdataAdd,"%s\n",dataAdd.id,t);
 		fprintf(fdataAdd,"%s\n",dataAdd.name,t);
 		fprintf(fdataAdd,"%s\n",dataAdd.yearlife,t);
@@ -77,6 +75,11 @@ void addData()
 			break; 
 	}
 	
+}
+
+//search of the file
+void search()
+{
 }
 
 int main() 
