@@ -44,9 +44,9 @@ void allData()
 //add to file
 void addData()
 {
+	FILE* fdataAdd;
+	int t;
 	printf("Введите данные\n");
-	FILE *fdataAdd;
-	char t;
 	while(true)
 	{
 		fdataAdd=fopen("book.txt","at");
@@ -61,11 +61,11 @@ void addData()
 		fscanf(stdin,"%s",&dataAdd.quore,&t);
 		printf("Введите произведение\n");
 		fscanf(stdin,"%s",&dataAdd.composition,&t);
-		fprintf(fdataAdd,"%s",dataAdd.id,t);
-		fprintf(fdataAdd,"%s",dataAdd.name,t);
-		fprintf(fdataAdd,"%s",dataAdd.yearlife,t);
-		fprintf(fdataAdd,"%s",dataAdd.quore,t);
-		fprintf(fdataAdd,"%s",dataAdd.composition,t);
+		fprintf(fdataAdd,"%s\n",dataAdd.id,t);
+		fprintf(fdataAdd,"%s\n",dataAdd.name,t);
+		fprintf(fdataAdd,"%s\n",dataAdd.yearlife,t);
+		fprintf(fdataAdd,"%s\n",dataAdd.quore,t);
+		fprintf(fdataAdd,"%s\n",dataAdd.composition,t);
 		fclose(fdataAdd);
 		printf("Нажмите Q/q для выхода из режима заполнения или Enter для продолжения\n");
 		char c=' ';
